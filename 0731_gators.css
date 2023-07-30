@@ -1,0 +1,13 @@
+#greenSquare{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    background-color: green;
+}
+
+#blueSquare{
+    width: 300px;
+    vertical-align: middle;
+    margin: auto;
+    background-color: blue;
+}
