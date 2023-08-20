@@ -31,7 +31,28 @@ def main():
 	color['black'][1].append('tei')
 	color['black'][1].append('miyanoyara')
 	#ここにプログラムを追加し、上と同じ結果が表示されるようにしてください。出力順番は問いません。
-	
+
+	color['blue'] = [0, []]
+	color['blue'][0] = 0
+	color['blue'][0] += 1
+	color['blue'][0] += 1
+	color['blue'][1].append('nimiya')
+	color['blue'][1].append('furusawa')
+
+	color['red'] = [0, []]
+	color['red'][0] = 0
+	color['red'][0] += 1
+	color['red'][0] += 1
+	color['red'][1].append('oshiro')
+	color['red'][1].append('sawa')
+
+	color['pink'] = [0, []]
+	color['pink'][0] = 0
+	color['pink'][0] += 1
+	color['pink'][1].append('matsui')
+
+
+	#ここにプログラムを追加し、上と同じ結果が表示されるようにしてください。出力順番は問いません。	
 	
 	print()
 	for i in color:
