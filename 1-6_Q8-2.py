@@ -18,7 +18,15 @@ def main():
 		if colorname not in color:
 			color[colorname] = [0, []]
 #ここに2行追加してください。
- 
+
+	for name,colorname in group_member.items():
+    	color[colorname][0] += 1
+    	color[colorname][1].append(name)
+        
+	print(color)
+#ここに2行追加してください。
+
+	
 	for i in color:
 		print(i, '=', color[i])
 if __name__ == '__main__':
