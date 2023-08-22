@@ -24,7 +24,23 @@ def main():
 	[3] フルーツをkey（ラベル）、好きな人のリストをvalue（中身）となるdictionary
 		（ラベル付き引き出し）を作ってみましょう。
 	'''
- 
+	fruits_dict = {}
+
+	for name,fruit_list in fav_fruit_dict.items():
+   	 # print(name)
+   	 # print(fruit_list)
+		for fruit in fruit_list:
+			# print(fruit)
+			if fruit not in fruits_dict:
+				fruits_dict[fruit] = []
+
+		if fruit == "apple":
+			fruits_dict["apple"].append(name)
+
+	print("like apple" , len(fruits_dict["apple"]))
+
+
+	print(fruits_dict) 
  
 if __name__ == '__main__':
 	main()
