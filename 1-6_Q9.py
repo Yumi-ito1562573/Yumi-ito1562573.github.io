@@ -27,20 +27,38 @@ def main():
 	fruits_dict = {}
 
 	for name,fruit_list in fav_fruit_dict.items():
-   	 # print(name)
-   	 # print(fruit_list)
+    	# print(name)
+   	# print(fruit_list)
 		for fruit in fruit_list:
-			# print(fruit)
 			if fruit not in fruits_dict:
 				fruits_dict[fruit] = []
 
-		if fruit == "apple":
-			fruits_dict["apple"].append(name)
+			if fruit == "apple":
+				fruits_dict["apple"].append(name)
+
+			if fruit == "plum":
+				fruits_dict["plum"].append(name)
+
+			if fruit == "orange":
+				fruits_dict["orange"].append(name)
+
+			if fruit == "cherry":
+				fruits_dict["cherry"].append(name)
+
+			if fruit == "grape":
+				fruits_dict["grape"].append(name)
+
 
 	print("like apple" , len(fruits_dict["apple"]))
+	print("like plum" , len(fruits_dict["plum"]))
+	# print("like orange" , len(fruits_dict["orange"]))
+	# print("like cherry" , len(fruits_dict["cherry"]))
+	# print("like grape" , len(fruits_dict["grape"]))
 
+	# print(fruits_dict)
 
-	print(fruits_dict) 
+	for i in fruits_dict:
+		print(i, '=', fruits_dict[i])
  
 if __name__ == '__main__':
 	main()
