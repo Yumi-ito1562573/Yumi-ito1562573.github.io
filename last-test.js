@@ -53,33 +53,31 @@ function test(actual, expected) {
 // test(findKeys({ 1: "h", b: "el", c: "hello", d: "hello", e: "o" }, "hello"),["c", "d"]); // ["c", "d"]
 
 
-//test3-----------------------------------NG-------------
+//test3-----------------------------------NG -> OK------------
 // ここにコードを書きましょう
-// function buildObject(array1, array2) {
-//     const newObj = array1.map(function (element, i) {
-//         console.log(element)
-//         console.log(i)
-//         return {[array1[i]]: array2[i]};
-//     });
-//     console.log(newObj);
-//     const result = newObj.join();
+//patern-No.1---------
+// function buildObject(array1, array2){
+//     const result = {};
+//     for (let i = 0; i < array1.length; i++){
+//         result[array1[i]] = array2[i];
+//     }
+//     console.log(result);
 //     return result;
 // }
-// function buildObject(array1, array2){
-//     const newObj = {};
 
-//     for (const element1 of array1){
-//         console.log(element1)
-//         for (const element2 of array2){
-//             console.log(element2)
-//         }
-
-//     }
-//     newObj[element1] = [element2];
-//     return newObj;
+//patern-No.2---------
+// function buildObject(array1, array2) {
+//     const newObject = array2.reduce((accumulator, currentValue, index) => {
+//         accumulator[array1[index]] = currentValue;
+//         // console.log(accumulator, currentValue, index)
+//         return accumulator;
+//     }, {});
+//     // console.log(newObject)
+//     return newObject;
 // }
 
-// test(buildObject(["a", "b", "c"], [1, 2, 3]),{"a": 1, "b": 2, "c": 3}); // {"a": 1, "b": 2, "c": 3}
+
+// test(buildObject(["a", "b", "c"], [1, 2, 3]), { "a": 1, "b": 2, "c": 3 }); // {"a": 1, "b": 2, "c": 3}
 // test(buildObject(["cat", "dog", "duck"], ["meow", "woof", "quack"]),{"cat": "meow", "dog": "woof", "duck": "quack"}); // {"cat": "meow", "dog": "woof", "duck": "quack"}
 // test(buildObject(["cat", "dog", "duck"], [null, 0, NaN]),{"cat": null, "dog": 0, "duck": NaN}); // {"cat": null, "dog": 0, "duck": NaN}
 // test(buildObject(["abc", "def", "ghi"], [[0, 1, 2], [3, 4, 5], [6, 7, 8]]),{"abc": [0, 1, 2], "def": [3, 4, 5], "ghi": [6, 7, 8]});  // {"abc": [0, 1, 2], "def": [3, 4, 5], "ghi": [6, 7, 8]}
@@ -104,6 +102,7 @@ function test(actual, expected) {
 
 // function simpleHello() {
 //     console.log("Hello");
+//     // return "Hello"
 // }
 
 // function anotherGreeting(name) {
@@ -174,7 +173,7 @@ console.log(bar);　--> Hello, JavaScript
 // test(changeMiddle("I like cats", "love"),"I love cats"); // "I love cats"
 // test(changeMiddle("red green blue", "yellow"),"red yellow blue"); // "red yellow blue"
 
-//test9-------------------------------------------途中---------
+//test9-------------------------------------------途中 -> OK---------
 // ここにコードを書きましょう
 // function countSomething(someArray){
 //     const stringResult = [];
@@ -189,14 +188,21 @@ console.log(bar);　--> Hello, JavaScript
 //             numberResult.push(element);
 //         }
 //     }
+
+
 //     let max = Math.max(stringResult.length, boolResult.length, numberResult.length);
-//     console.log(max);
+//     // console.log(max);
+
+//     if (max === stringResult.length){
+//         return `STRING COUNT: ${stringResult.length}`;
+//     }else if (max === boolResult.length){
+//         return `BOOL COUNT: ${boolResult.length}`;   
+//     }else{
+//         return `NUMBER COUNT: ${numberResult.length}`;
+//     }
 //     // console.log(stringResult.length);
 //     // console.log(boolResult.length);
 //     // console.log(numberResult.length);
-//     return `STRING COUNT: ${stringResult.length}`;
-
-
 // }
 
 
@@ -225,8 +231,9 @@ console.log(bar);　--> Hello, JavaScript
 //test11----------------------------------NG------------------
 // ここにコードを書きましょう
 function compose(funcA,funcB){
-    function innCompose(){
-        return funcB(funcA);
+    function innCompose(x){
+        // console.log(x);
+        return funcB + funcA;
     }
     return innCompose;
 }
@@ -234,6 +241,7 @@ function compose(funcA,funcB){
 function multiplyTwo(x) {
     return x * 2;
 }
+console.log(multiplyTwo(x));
 
 function addTen(x) {
     return x + 10;
@@ -245,3 +253,4 @@ const baz = compose(multiplyTwo, addTen);
 
 test(baz(5),20); // 20
 test(baz(100),210); // 210
+
