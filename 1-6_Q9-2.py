@@ -31,7 +31,35 @@ def main():
 	[3]消費期限が一番近い（日付が若い）果物を注文した人をリストアップしてください。
  
 	'''
- 
+	fruit_dict = {}
+
+	for name,orderdictvalue in orderdict.items():
+    		for fruit,num in orderdictvalue.items():
+        		if fruit not in fruit_dict:
+            			fruit_dict[fruit] = []
+            			# print(fruit_dict)
+        		if fruit == "apple":
+            			fruit_dict["apple"].append(num)
+        		elif fruit == "orange":
+            			fruit_dict["orange"].append(num)
+        		elif fruit == "cherry":
+            			fruit_dict["cherry"].append(num)
+        		elif fruit == "grape":
+            			fruit_dict["grape"].append(num)
+        		elif fruit == "plum":
+            			fruit_dict["plum"].append(num)
+
+	# print(fruit_dict)
+
+	total_apple = 0
+	total_orange = 0
+
+	for i in fruit_dict["apple"]:
+		total_apple = total_apple + i
+	for i in fruit_dict["orange"]:
+		total_orange = total_orange + i
+	print("total_apple =" , total_apple)
+	print("total_orange =" , total_orange) 
  
 if __name__ == '__main__':
 	main()
