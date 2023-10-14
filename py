@@ -8,7 +8,7 @@ def main():
 	partlist=list()
 	
 	parts = base.CollectEntities(constants.NASTRAN, None, "ANSAPART", recursive=True)
-#	print("parts=",parts)
+#	print("parts=",parts)  //DBのPartをobject形式で出力
 	for part in parts:
 #		print(part)
 		vals = ('Name',)
@@ -17,9 +17,9 @@ def main():
 		
 		partfrom = base.GetPartFromName(partname)
 		partlist.append(partfrom)
-#	print("partlist=",partlist)
+#	print("partlist=",partlist) //PartのNameを空のlistに入れて出力
 	
-	new_group = base.NewGroup(name="WB")
+	new_group = base.NewGroup(name="WB")　//新しいGroupを指定の名前で作成
 	base.SetEntityPart(parts, new_group)
 	
 	part = base.NewPart('11111')
